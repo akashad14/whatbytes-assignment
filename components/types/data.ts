@@ -5,7 +5,7 @@ export const PRODUCTS: Product[] = [
   {
     id: '1',
     image:
-      '/img5.png',
+      '/img1.jpg',
     title: 'Running Shoes',
     price: 99,
     category: 'Footwear',
@@ -15,7 +15,7 @@ export const PRODUCTS: Product[] = [
   {
     id: '2',
     image:
-      '/img4.png',
+      '/img2.jpg',
     title: 'Wireless Headphones',
     price: 149,
     category: 'Electronics',
@@ -24,7 +24,7 @@ export const PRODUCTS: Product[] = [
   },
     {
     id: '3',
-    image: '/img2.png',
+    image: '/img3.jpg',
     title: 'Backpack',
     price: 129,
     category: 'Bags',
@@ -33,7 +33,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: '4',
-    image: '/img3.png',
+    image: '/img4.jpg',
     title: 'Smartwatch',
     price: 399,
     category: 'Electronics',
@@ -42,7 +42,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: '5',
-    image: '/img1.png',
+    image: '/img5.jpg',
     title: 'Sunglasses',
     price: 299,
     category: 'Eyewear',
@@ -60,7 +60,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: '7',
-    image: '/img7.png',
+    image: '/img7.jpg',
     title: 'T-shirt',
     price: 29,
     category: 'Clothing',
@@ -69,7 +69,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: '8',
-    image: '/img8.png',
+    image: '/img8.jpg',
     title: 'Smartphone',
     price: 699,
     category: 'Electronics',

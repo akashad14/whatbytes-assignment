@@ -9,7 +9,7 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 text-center sm:text-left">
 
-          {/* Filters */}
+        
           <div>
             <h4 className="text-lg font-semibold mb-4">Filters</h4>
             <ul className="space-y-2 text-sm text-white/80">

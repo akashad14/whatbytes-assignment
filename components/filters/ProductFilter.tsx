@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo, ReactNode } from 'react';
+import { useState, useMemo, ReactNode, useEffect } from 'react';
 
 export interface Product {
   id: string;
@@ -42,6 +42,27 @@ export function ProductFilter({
   const [selectedBrands, setSelectedBrands] = useState<string[]>(['All']);
   const [priceRange, setPriceRange] = useState<number[]>([0, 1000]);
   const [cart, setCart] = useState<string[]>([]);
+  const [isMounted, setIsMounted] = useState(false);
+
+  // Load cart from localStorage on mount
+  useEffect(() => {
+    setIsMounted(true);
+    const savedCart = localStorage.getItem('shopping-cart');
+    if (savedCart) {
+      try {
+        setCart(JSON.parse(savedCart));
+      } catch (error) {
+        console.log('Error loading cart from localStorage:', error);
+      }
+    }
+  }, []);
+
+  // Save cart to localStorage whenever it changes
+  useEffect(() => {
+    if (isMounted) {
+      localStorage.setItem('shopping-cart', JSON.stringify(cart));
+    }
+  }, [cart, isMounted]);
 
   // Filter products based on search, categories, brands, and price
   const filteredProducts = useMemo(() => {
