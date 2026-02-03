@@ -1,15 +1,50 @@
 'use client';
-import  Header  from '../components/homepage/Header';
+
+import { Header } from '@/components/homepage/Header';
+import { Sidebar } from '@/components/homepage/Sidebar';
+import { ProductListing } from '@/components/homepage/ProductListing';
+import { Footer } from '@/components/homepage/footer';
+import { ProductFilter } from '@/components/filters/ProductFilter';
+import { PRODUCTS } from '@/components/types/data';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background flex flex-col">
-      {/* Top navigation */}
-      <Header
-  
-      />
+    <ProductFilter products={PRODUCTS}>
+      {({
+        filteredProducts,
+        cart,
+        onSearchChange,
+        onCategoryChange,
+        onBrandChange,
+        onPriceChange,
+        onAddToCart,
+      }) => (
+        <div className="min-h-screen bg-background flex flex-col">
+          {/* Header */}
+          <Header cartCount={cart.length} onSearchChange={onSearchChange} />
 
+          {/* Main Content */}
+          <div className="flex-1 container px-4 py-8">
+            <div className="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-8">
+              {/* Sidebar */}
+              <Sidebar
+                onCategoryChange={onCategoryChange}
+                onBrandChange={onBrandChange}
+                onPriceChange={onPriceChange}
+              />
 
-    </div>
+              {/* Product Listing */}
+              <ProductListing
+                products={filteredProducts}
+                onAddToCart={onAddToCart}
+              />
+            </div>
+          </div>
+
+          {/* Footer */}
+          <Footer />
+        </div>
+      )}
+    </ProductFilter>
   );
 }
