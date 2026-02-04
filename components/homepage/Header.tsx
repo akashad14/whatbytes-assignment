@@ -1,6 +1,7 @@
 'use client';
 
 import { Search, ShoppingCart } from 'lucide-react';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
@@ -11,8 +12,8 @@ interface HeaderProps {
 
 export function Header({ cartCount, onSearchChange }: HeaderProps) {
   return (
-    <header className="sticky top-0 z-50 bg-purple-900 text-primary-foreground shadow-md">
-      <div className="container flex items-center justify-between gap-4 px-8 py-4">
+    <header className="sticky top-0 z-50 bg-primary text-primary-foreground shadow-md">
+      <div className="container flex items-center justify-between gap-4 px-4 py-4">
         {/* Logo */}
         <div className="shrink-0">
           <h1 className="text-2xl font-bold">Logo</h1>
@@ -32,19 +33,21 @@ export function Header({ cartCount, onSearchChange }: HeaderProps) {
         </div>
 
         {/* Cart Button */}
-        <Button
-          variant="outline"
-          size="lg"
-          className="gap-2 bg-[#002a59] text-white border-none hover:bg-gray-600"
-        >
-          <ShoppingCart className="w-5 h-5" />
-          Cart
-          {cartCount > 0 && (
-            <span className="ml-2 bg-accent text-accent-foreground rounded-full px-2 py-0.5 text-sm font-semibold">
-              {cartCount}
-            </span>
-          )}
-        </Button>
+        <Link href="/cart">
+          <Button
+            variant="outline"
+            size="lg"
+            className="gap-2 bg-white text-primary border-white hover:bg-gray-600"
+          >
+            <ShoppingCart className="w-5 h-5" />
+            Cart
+            {cartCount > 0 && (
+              <span className="ml-2 bg-accent text-accent-foreground rounded-full px-2 py-0.5 text-sm font-semibold">
+                {cartCount}
+              </span>
+            )}
+          </Button>
+        </Link>
       </div>
     </header>
   );

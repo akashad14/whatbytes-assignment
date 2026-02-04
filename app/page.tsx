@@ -20,7 +20,6 @@ export default function Home() {
         onAddToCart,
       }) => (
         <div className="min-h-screen bg-background flex flex-col">
-          {/* Header */}
           <Header cartCount={cart.length} onSearchChange={onSearchChange} />
 
           {/* Main Content */}
@@ -33,7 +32,7 @@ export default function Home() {
                 onPriceChange={onPriceChange}
               />
 
-              {/* Product Listing */}
+              
               <ProductListing
                 products={filteredProducts}
                 onAddToCart={onAddToCart}
@@ -41,7 +40,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Footer */}
+        
           <Footer />
         </div>
       )}
